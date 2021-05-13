@@ -1,0 +1,7 @@
+C:\Users\bene1\Desktop\ElevenFiftyProjects\Assignments\ConsoleGameAssignmentFrogger\FeelingFroggy\FeelingFroggy\obj\Debug\FeelingFroggy.csprojAssemblyReference.cache
+C:\Users\bene1\Desktop\ElevenFiftyProjects\Assignments\ConsoleGameAssignmentFrogger\FeelingFroggy\FeelingFroggy\obj\Debug\FeelingFroggy.csproj.CoreCompileInputs.cache
+C:\Users\bene1\Desktop\ElevenFiftyProjects\Assignments\ConsoleGameAssignmentFrogger\FeelingFroggy\FeelingFroggy\bin\Debug\FeelingFroggy.exe.config
+C:\Users\bene1\Desktop\ElevenFiftyProjects\Assignments\ConsoleGameAssignmentFrogger\FeelingFroggy\FeelingFroggy\bin\Debug\FeelingFroggy.exe
+C:\Users\bene1\Desktop\ElevenFiftyProjects\Assignments\ConsoleGameAssignmentFrogger\FeelingFroggy\FeelingFroggy\bin\Debug\FeelingFroggy.pdb
+C:\Users\bene1\Desktop\ElevenFiftyProjects\Assignments\ConsoleGameAssignmentFrogger\FeelingFroggy\FeelingFroggy\obj\Debug\FeelingFroggy.exe
+C:\Users\bene1\Desktop\ElevenFiftyProjects\Assignments\ConsoleGameAssignmentFrogger\FeelingFroggy\FeelingFroggy\obj\Debug\FeelingFroggy.pdb
