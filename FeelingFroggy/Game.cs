@@ -11,8 +11,8 @@ namespace FeelingFroggy
         public int _lane1Counter = 0;
         private World MyWorld;
         private Frog CurrentFrog;
-        public int WindowHeight = 30;
-        public int WindowWidth = 60;
+        public int WindowHeight = 40;
+        public int WindowWidth = 70;
 
 
         public void Start()
@@ -79,63 +79,83 @@ namespace FeelingFroggy
 
         public void GameLoop()
         {
-            Enemy CarLane1 = new Enemy(3, 9);
-            Enemy CarLane2 = new Enemy(2, 8);
-            Enemy CarLane3 = new Enemy(5, 7);
-            Enemy CarLane4 = new Enemy(8, 4);
-            Enemy CarLane5 = new Enemy(13, 3);
-            Enemy CarLane6 = new Enemy(3, 2);
+            Enemy CarLane1 = new Enemy(3, 9, 6, ">");
+            Enemy CarLane2 = new Enemy(2, 8, 9, ">");
+            Enemy CarLane3 = new Enemy(5, 7, 3, ">");
+            Enemy CarLane4 = new Enemy(8, 4, 8, "<");
+            Enemy CarLane5 = new Enemy(13, 3, 3, "<");
+            Enemy CarLane6 = new Enemy(3, 2, 6, "<");
 
 
             while (true)
             {
                 DrawFrame();
 
-                CarLane1.MoveRight(CarLane1.PosX, CarLane1.PosY);
-                CarLane1.PosX += 2;
-                CollisionCheck(CarLane1.PosX, CarLane1.PosY);
-                if (CarLane1.PosX > 15) { CarLane1.PosX = 0; }
+                Random speed = new Random();
+                int speedCheck = speed.Next(0, 10);
+                if (CarLane1.Speed > speedCheck)
+                {
+                    CarLane1.MoveRight(CarLane1.PosX, CarLane1.PosY); /// Talking the car's speed (1-10), and seeing if its bigger than a number from random 0-10
+                    CarLane1.PosX += 1;             //  lower the speed the lower the times in will hit 
+                    CollisionCheck(CarLane1.PosX, CarLane1.PosY);
+                    if (CarLane1.PosX > 15) { CarLane1.PosX = 0; }
+                }
+                else CarLane1.Stay(CarLane1.PosX, CarLane1.PosY, CarLane1.Car);
 
+                speedCheck = speed.Next(0, 10);
+                if (CarLane2.Speed > speedCheck)
+                {
+                    CarLane2.MoveRight(CarLane2.PosX, CarLane2.PosY);
+                    CarLane2.PosX += 1;
+                    CollisionCheck(CarLane2.PosX, CarLane2.PosY);
+                    if (CarLane2.PosX > 15) { CarLane2.PosX = 0; }
+                }
+                else CarLane2.Stay(CarLane2.PosX, CarLane2.PosY, CarLane2.Car); 
 
-                CarLane2.MoveRight(CarLane2.PosX, CarLane2.PosY);
-                CarLane2.PosX += 2;
-                CollisionCheck(CarLane2.PosX, CarLane2.PosY);
-                if (CarLane2.PosX > 15) { CarLane2.PosX = 0; }
+                speedCheck = speed.Next(0, 10);
+                if (CarLane3.Speed > speedCheck)
+                {
+                    CarLane3.MoveRight(CarLane3.PosX, CarLane3.PosY);
+                    CarLane3.PosX += 1;
+                    CollisionCheck(CarLane3.PosX, CarLane3.PosY);
+                    if (CarLane3.PosX > 15) { CarLane3.PosX = 0; }
+                }
+                else CarLane3.Stay(CarLane3.PosX, CarLane3.PosY, CarLane3.Car);
 
+                speedCheck = speed.Next(0, 10);
+                if (CarLane4.Speed > speedCheck)
+                {
+                    CarLane4.MoveLeft(CarLane4.PosX, CarLane4.PosY);
+                    CarLane4.PosX -= 1;
+                    CollisionCheck(CarLane4.PosX, CarLane4.PosY);
+                    if (CarLane4.PosX <= 2) { CarLane4.PosX = 15; }
+                }
+                else CarLane4.Stay(CarLane4.PosX, CarLane4.PosY, CarLane4.Car);
 
-                CarLane3.MoveRight(CarLane3.PosX, CarLane3.PosY);
-                CarLane3.PosX += 2;
-                CollisionCheck(CarLane3.PosX, CarLane3.PosY);
-                if (CarLane3.PosX > 15) { CarLane3.PosX = 0; }
+                speedCheck = speed.Next(0, 10);
+                if (CarLane5.Speed > speedCheck)
+                {
+                    CarLane5.MoveLeft(CarLane5.PosX, CarLane5.PosY);
+                    CarLane5.PosX -= 1;
+                    CollisionCheck(CarLane5.PosX, CarLane5.PosY);
+                    if (CarLane5.PosX <= 2) { CarLane5.PosX = 15; }
+                }
+                else CarLane5.Stay(CarLane5.PosX, CarLane5.PosY, CarLane5.Car);
 
-
-                CarLane4.MoveLeft(CarLane4.PosX, CarLane4.PosY);
-                CarLane4.PosX -= 2;
-                CollisionCheck(CarLane4.PosX, CarLane4.PosY);
-                if (CarLane4.PosX <= 2) { CarLane4.PosX = 15; }
-
-
-                CarLane5.MoveLeft(CarLane5.PosX, CarLane5.PosY);
-                CarLane5.PosX -= 2;
-                CollisionCheck(CarLane5.PosX, CarLane5.PosY);
-                if (CarLane5.PosX <= 2) { CarLane5.PosX = 15; }
-
-
-                CarLane6.MoveLeft(CarLane6.PosX, CarLane6.PosY);
-                CarLane6.PosX -=
-
-
-
-
-
-
-                CollisionCheck(CarLane6.PosX, CarLane6.PosY);
-                if (CarLane6.PosX <= 2) { CarLane6.PosX = 15; }
+                speedCheck = speed.Next(0, 10);
+                if (CarLane6.Speed > speedCheck)
+                {
+                    CarLane6.MoveLeft(CarLane6.PosX, CarLane6.PosY);
+                    CarLane6.PosX -= 1;
+                    CollisionCheck(CarLane6.PosX, CarLane6.PosY);
+                    if (CarLane6.PosX <= 2) { CarLane6.PosX = 15; }
+                }
+                else CarLane6.Stay(CarLane6.PosX, CarLane6.PosY, CarLane6.Car);
 
 
                 while (Console.KeyAvailable) { PlayerInput(); }
                 //Check if player hit To do
-                System.Threading.Thread.Sleep(200);
+                System.Threading.Thread.Sleep(60);
 
             }
         }
@@ -144,7 +164,7 @@ namespace FeelingFroggy
         {
             string[,] grid = {
                 {"~" , "~" , "~" , "~" , "~" , "~" , "~" , "~" , "~" , "~" ,"~" , "~" , "~" , "~" , "~" , "|" }, //  15x11
-                {"|" , "$" , "=" , "=" , "$" , "$" , "$" , "=" , "=" , "=" ,"$" , "$" , "$" , "=" , "=" , "|" }, // End
+                {"|" , "=" , "$" , "=" , "$" , "=" , "$" , "=" , "$" , "=" ,"$" , "=" , "$" , "=" , "=" , "|" }, // End
                 {"|" , " " , " " , " " , " " , " " , " " , " " , " " , " " ," " , " " , " " , " " , " " , "|" }, // Danger
                 {"|" , " " , " " , " " , " " , " " , " " , " " , " " , " " ," " , " " , " " , " " , " " , "|" }, // Danger
                 {"|" , " " , " " , " " , " " , " " , " " , " " , " " , " " ," " , " " , " " , " " , " " , "|" }, // Danger

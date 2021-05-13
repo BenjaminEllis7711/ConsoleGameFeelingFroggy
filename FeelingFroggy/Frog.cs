@@ -33,16 +33,20 @@ namespace FeelingFroggy
     }
     public class Enemy
     {
+        private int _speed;
         public int PosX { get; set; }
         public int PosY { get; set; }
-        public string Car { get; set;  } 
-        
+        public string Car { get; set; }
+        public int Speed { get; set; } // 1 (slowest to 10 (fastest)
+
 
         public Enemy() { }
-        public Enemy(int x, int y)
+        public Enemy(int x, int y, int z, string car)
         {
             PosX = x;
             PosY = y;
+            Speed = z;
+            Car = car;
         }
         public void MoveRight(int x, int y)
         {
@@ -51,10 +55,12 @@ namespace FeelingFroggy
             x++;
             Console.SetCursorPosition(x, y);
             Console.Write(">");
-            
+
         }
         public void MoveLeft(int x, int y)
         {
+
+
             Console.SetCursorPosition(x, y);
             Console.Write(" ");
             x--;
@@ -62,7 +68,13 @@ namespace FeelingFroggy
             Console.Write("<");
 
         }
-        
+
+        public void Stay(int x, int y, string car)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(car);
+        }
+
     }
 
 }
